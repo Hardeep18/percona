@@ -27,7 +27,7 @@ wsrep_provider=/usr/lib/libgalera_smm.so
 wsrep_cluster_name=democluster
 wsrep_cluster_address=gcomm://
 wsrep_node_name=centosvm01
-wsrep_node_address=172.42.42.101
+wsrep_node_address=172.16.16.101
 wsrep_sst_method=xtrabackup-v2
 wsrep_sst_auth=repuser:reppassword
 pxc_strict_mode=ENFORCING
@@ -48,7 +48,7 @@ mysql -uroot -p -e "flush privileges"
 ```
 ##### Update Replication configuration
 ```
-sed -i 's/^wsrep_cluster_address=.*/wsrep_cluster_address=gcomm:\/\/172.42.42.101,172.42.42.102/' /etc/mysql/my.cnf
+sed -i 's/^wsrep_cluster_address=.*/wsrep_cluster_address=gcomm:\/\/172.16.16.101,172.16.16.102/' /etc/mysql/my.cnf
 ```
 
 ### On Second node
@@ -69,9 +69,9 @@ cat >>/etc/mysql/my.cnf<<EOF
 [mysqld]
 wsrep_provider=/usr/lib/libgalera_smm.so
 wsrep_cluster_name=democluster
-wsrep_cluster_address=gcomm://172.42.42.101,172.42.42.102
+wsrep_cluster_address=gcomm://172.16.16.101,172.16.16.102
 wsrep_node_name=centosvm02
-wsrep_node_address=172.42.42.102
+wsrep_node_address=172.16.16.102
 wsrep_sst_method=xtrabackup-v2
 wsrep_sst_auth=repuser:reppassword
 pxc_strict_mode=ENFORCING
