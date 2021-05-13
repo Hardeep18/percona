@@ -1,17 +1,17 @@
 ## Percona-XtraDB-Cluster
-### Install instructions for Ubuntu 18
+### Install instructions for Ubuntu 20.04
 
 ### Assumptions
 |Role|machine name|IP address|Memory|Operating System|
 |-|-|-|-|-|
-|master node 1|ubuntuvm01|172.42.42.101|1G|Ubuntu 18|
-|master node 2|ubuntuvm02|172.42.42.102|1G|Ubuntu 18|
-
+|master node 1|ubuntuvm01|172.16.16.101|1G|Ubuntu 20.04 |
+|master node 2|ubuntuvm02|172.16.16.102|1G|Ubuntu 20.04 |
+|master node 3|ubuntuvm03|172.16.16.103|1G|Ubuntu 20.04 |
 ### On First node
 ##### Add Percona Repository
 ```
-wget https://repo.percona.com/apt/percona-release_0.1-6.$(lsb_release -sc)_all.deb
-dpkg -i percona-release_0.1-6.$(lsb_release -sc)_all.deb
+wget https://repo.percona.com/apt/percona-release_latest.focal_all.deb
+dpkg -i percona-release_latest.focal_all.deb
 ```
 ##### Install Percona-XtraDB-Cluster
 ```
@@ -54,8 +54,8 @@ sed -i 's/^wsrep_cluster_address=.*/wsrep_cluster_address=gcomm:\/\/172.42.42.10
 ### On Second node
 ##### Add Percona Repository
 ```
-wget https://repo.percona.com/apt/percona-release_0.1-6.$(lsb_release -sc)_all.deb
-dpkg -i percona-release_0.1-6.$(lsb_release -sc)_all.deb
+wget https://repo.percona.com/apt/percona-release_latest.focal_all.deb
+dpkg -i percona-release_latest.focal_all.deb
 ```
 ##### Install Percona-XtraDB-Cluster
 ```
